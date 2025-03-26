@@ -7,6 +7,11 @@ const forms = {
 const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
 
 function getComputerChoice() {
-  const computerChoice = forms[getNumber()]
-  return computerChoice
+  const choice = forms[getNumber()]
+  return choice
+}
+
+function getHumanChoice() {
+  const choice = prompt('Which form?', 'scissors')
+  return choice
 }
