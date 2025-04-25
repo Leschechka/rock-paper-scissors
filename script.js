@@ -4,6 +4,9 @@ const forms = {
   3: 'rock',
 }
 
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper')
+const scissorsButton = document.querySelector('#scissors')
 const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
 
 function getComputerChoice() {
