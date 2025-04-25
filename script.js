@@ -28,9 +28,6 @@ function playRound() {
   const humanSelection = getHumanChoice().toLowerCase()
   const computerSelection = getComputerChoice()
 
-  console.log(`your selection: ${humanSelection}
-computer selection: ${computerSelection}`)
-
   if (humanSelection == computerSelection) {
     console.log(`Draw`)
   } else if (humanSelection == 'scissors' && computerSelection == 'paper') {
@@ -44,8 +41,11 @@ computer selection: ${computerSelection}`)
     humanScore++
   } else {
     computerScore++
+  
   }
-
+  console.log(`your selection: ${humanSelection}
+computer selection: ${computerSelection}`)
+  
   showScore()
 }
 
