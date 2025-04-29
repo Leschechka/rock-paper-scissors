@@ -4,16 +4,6 @@ const forms = {
   3: 'rock',
 }
 
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
-
-
-rockButton.addEventListener('click', () => 'rock');
-paperButton.addEventListener('click', () => 'paper')
-scissorsButton.addEventListener('click', () => 'scissors')
-
-
 function getComputerChoice() {
   const choice = forms[getNumber()]
   return choice
@@ -21,59 +11,45 @@ function getComputerChoice() {
 
 const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
 
-function getHumanChoice() {
-  const choice = prompt('Which form?', 'scissors')
-  return choice
-}
-
 let humanScore = 0
-let computerScore = 0
+let machineScore = 0
 
-function showScore() {
-  console.log(`your score: ${humanScore}
-computer score: ${computerScore}`)
-}
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const scissorsBtn = document.getElementById('scissors');
+const userChoice = document.getElementById('user-choice');
+const computerChoice = document.getElementById('computer-choice');
+const userScore = document.getElementById('user-score');
+const computerScore = document.getElementById('computer-score')
 
-function playRound() {
-  const humanSelection = getHumanChoice().toLowerCase()
+rockBtn.addEventListener('click', () => playRound(rockBtn.value))
+paperBtn.addEventListener('click', () => playRound(paperBtn.value))
+scissorsBtn.addEventListener('click', () => playRound(scissorsBtn.value))
+
+
+function playRound(yourChoice) {
+  const humanSelection = yourChoice
   const computerSelection = getComputerChoice()
 
   if (humanSelection == computerSelection) {
-    console.log(`Draw`)
+    // draw
   } else if (humanSelection == 'scissors' && computerSelection == 'paper') {
-    console.log('Win')
     humanScore++
   } else if (humanSelection == 'paper' && computerSelection == 'rock') {
-    console.log('Win')
     humanScore++
   } else if (humanSelection == 'rock' && computerSelection == 'scissors') {
-    console.log('Win')
     humanScore++
   } else {
-    computerScore++
-  
+    machineScore++
   }
-  console.log(`your selection: ${humanSelection}
-computer selection: ${computerSelection}`)
   
-  showScore()
-}
+  userChoice.textContent = yourChoice
+  computerChoice.textContent = computerSelection
+  
+  userScore.textContent = humanScore;
+  computerScore.textContent = machineScore; 
 
-function playGame() {
-  if (prompt('Woud you like to play?', 'yes') == 'yes') {
-    for (let i = 0; i < 5; i++) {
-      playRound()
-    }
-
-    if (humanScore > computerScore) {
-      console.log('You won')
-    } else if (humanScore < computerScore) {
-      console.log('You failed')
-    } else {
-      console.log('Draw')
-    }
+  if (humanScore == 5 || machineScore == 5) {
+    
   }
-
-  humanScore = 0
-  computerScore = 0
 }

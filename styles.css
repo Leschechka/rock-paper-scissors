@@ -16,11 +16,26 @@ h1 {
 }
 
 .board {
-	text-align: center;
 	background-color: rgb(244, 241, 238);
 	border-bottom: solid;
 	font-weight: bold;
 	font-size: 20px;
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+.user p {
+	color: rgb(87, 87, 154);
+}
+
+.computer p {
+	color: rgb(147, 85, 85);
+}
+
+span {
+	color: rgb(0, 0, 0);
 }
 
 .buttons {
@@ -34,4 +49,11 @@ button {
 	border: 3px solid black;
 	padding: 5px 10px;
 	font-weight: bold;
+}
+
+#user-choice, #user-score {
+}
+
+p {
+	margin: 1px;
 }
