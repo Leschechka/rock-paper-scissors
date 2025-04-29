@@ -5,14 +5,21 @@ const forms = {
 }
 
 const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper')
-const scissorsButton = document.querySelector('#scissors')
-const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+
+rockButton.addEventListener('click', () => 'rock');
+paperButton.addEventListener('click', () => 'paper')
+scissorsButton.addEventListener('click', () => 'scissors')
+
 
 function getComputerChoice() {
   const choice = forms[getNumber()]
   return choice
 }
+
+const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
 
 function getHumanChoice() {
   const choice = prompt('Which form?', 'scissors')
