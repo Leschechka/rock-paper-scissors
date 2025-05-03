@@ -60,10 +60,10 @@ function showResult(score1, score2) {
   const userCongratulation = document.createElement('span')
   if (score1 == 5) {
     userCongratulation.classList.add('win')
-    userCongratulation.textContent = 'You are winner!'
+    userCongratulation.textContent = 'Win!'
   } else if (score2 == 5) {
     userCongratulation.classList.add('fail')
-    userCongratulation.textContent = 'You failed'
+    userCongratulation.textContent = 'Fail'
   }
 
   winner.appendChild(userCongratulation)
