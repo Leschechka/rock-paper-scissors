@@ -63,11 +63,11 @@ p {
 	font-weight: bold;
 }
 
-.blue {
+.fail {
 	color: #0a4752;
 }
 
-.red {
+.win {
 	color: #8f1212;
 }
 
