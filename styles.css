@@ -38,7 +38,7 @@ span {
 	color: rgb(0, 0, 0);
 }
 
-.buttons {
+#buttons {
 	background-color: rgb(196, 196, 208);
 	padding: 10px 0;
 }
@@ -56,4 +56,24 @@ button {
 
 p {
 	margin: 1px;
+}
+
+.winner {
+	background-color: rgb(196, 196, 208);
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.blue {
+	color: blue;
+}
+
+.red {
+	color: red;
+}
+
+.restart {
+	width: 50%;
+	padding: 10px 5px;
+	margin-bottom: 5px;
 }

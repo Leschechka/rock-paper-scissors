@@ -50,6 +50,42 @@ function playRound(yourChoice) {
   computerScore.textContent = machineScore; 
 
   if (humanScore == 5 || machineScore == 5) {
-    
+    const buttons = document.getElementById('buttons')
+    const parentOfButtons =  buttons.parentNode
+    const winner = document.createElement('div');
+    winner.classList.add('winner');
+    const userCongratulation = document.createElement('span');
+    if (humanScore == 5) {
+      userCongratulation.classList.add('blue');
+      userCongratulation.textContent = 'You are winner!'
+    } else {
+      userCongratulation.classList.add('red')
+            userCongratulation.textContent = 'You failed'
+    }
+    winner.appendChild(userCongratulation)
+    const breaking = document.createElement('br');
+    winner.appendChild(breaking)
+    const restartBtn = document.createElement('button');
+    restartBtn.classList.add('restart')
+    restartBtn.textContent = 'Restart?'
+    winner.appendChild(restartBtn)
+    parentOfButtons.insertBefore(winner, buttons)
+    buttons.style.display = 'none'
+
+    function restartGame() {
+      humanScore = 0
+      machineScore = 0
+      userChoice.textContent = ''
+      computerChoice.textContent = ''
+      userScore.textContent = ''
+      computerScore.textContent = ''
+      parentOfButtons.removeChild(winner)
+      buttons.style.display = 'block'
+
+    }
+    restartBtn.addEventListener('click', restartGame)
   }
+
 }
+
+
