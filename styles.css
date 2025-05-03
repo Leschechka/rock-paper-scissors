@@ -22,7 +22,7 @@ h1 {
 	font-size: 20px;
 	display: flex;
 	gap: 10px;
-	justify-content: space-between;
+	justify-content: space-around;
 	padding: 5px;
 }
 
@@ -34,24 +34,23 @@ h1 {
 	color: rgb(147, 85, 85);
 }
 
+
+
 span {
 	color: rgb(0, 0, 0);
 }
 
 #buttons {
-	background-color: rgb(196, 196, 208);
+	background-color: rgb(150, 150, 176);
 	padding: 10px 0;
 }
 
 
 button {
-	background-color: antiquewhite;
+	background-color: rgb(246, 242, 238);
 	border: 3px solid black;
 	padding: 5px 10px;
 	font-weight: bold;
-}
-
-#user-choice, #user-score {
 }
 
 p {
@@ -59,21 +58,26 @@ p {
 }
 
 .winner {
-	background-color: rgb(196, 196, 208);
+	background-color: rgb(150, 150, 176);
 	font-size: 50px;
 	font-weight: bold;
 }
 
 .blue {
-	color: blue;
+	color: #0a4752;
 }
 
 .red {
-	color: red;
+	color: #8f1212;
 }
 
 .restart {
 	width: 50%;
 	padding: 10px 5px;
 	margin-bottom: 5px;
+}
+
+img {
+	width: 40px;
+	height: 40px;
 }

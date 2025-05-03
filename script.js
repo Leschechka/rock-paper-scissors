@@ -14,20 +14,19 @@ const getNumber = () => Math.floor(Math.random() * (3 - 1 + 1)) + 1
 let humanScore = 0
 let machineScore = 0
 
-const rockBtn = document.getElementById('rock');
-const paperBtn = document.getElementById('paper');
-const scissorsBtn = document.getElementById('scissors');
-const userChoice = document.getElementById('user-choice');
-const computerChoice = document.getElementById('computer-choice');
-const userScore = document.getElementById('user-score');
+const rockBtn = document.getElementById('rock')
+const paperBtn = document.getElementById('paper')
+const scissorsBtn = document.getElementById('scissors')
+const userChoice = document.getElementById('user-choice')
+const computerChoice = document.getElementById('computer-choice')
+const userScore = document.getElementById('user-score')
 const computerScore = document.getElementById('computer-score')
 
-rockBtn.addEventListener('click', () => playRound(rockBtn.value))
-paperBtn.addEventListener('click', () => playRound(paperBtn.value))
-scissorsBtn.addEventListener('click', () => playRound(scissorsBtn.value))
+rockBtn.addEventListener('click', () => playGame(rockBtn.value))
+paperBtn.addEventListener('click', () => playGame(paperBtn.value))
+scissorsBtn.addEventListener('click', () => playGame(scissorsBtn.value))
 
-
-function playRound(yourChoice) {
+function playGame(yourChoice) {
   const humanSelection = yourChoice
   const computerSelection = getComputerChoice()
 
@@ -42,50 +41,50 @@ function playRound(yourChoice) {
   } else {
     machineScore++
   }
-  
+
   userChoice.textContent = yourChoice
   computerChoice.textContent = computerSelection
-  
-  userScore.textContent = humanScore;
-  computerScore.textContent = machineScore; 
+  userScore.textContent = humanScore
+  computerScore.textContent = machineScore
 
   if (humanScore == 5 || machineScore == 5) {
-    const buttons = document.getElementById('buttons')
-    const parentOfButtons =  buttons.parentNode
-    const winner = document.createElement('div');
-    winner.classList.add('winner');
-    const userCongratulation = document.createElement('span');
-    if (humanScore == 5) {
-      userCongratulation.classList.add('blue');
-      userCongratulation.textContent = 'You are winner!'
-    } else {
-      userCongratulation.classList.add('red')
-            userCongratulation.textContent = 'You failed'
-    }
-    winner.appendChild(userCongratulation)
-    const breaking = document.createElement('br');
-    winner.appendChild(breaking)
-    const restartBtn = document.createElement('button');
-    restartBtn.classList.add('restart')
-    restartBtn.textContent = 'Restart?'
-    winner.appendChild(restartBtn)
-    parentOfButtons.insertBefore(winner, buttons)
-    buttons.style.display = 'none'
-
-    function restartGame() {
-      humanScore = 0
-      machineScore = 0
-      userChoice.textContent = ''
-      computerChoice.textContent = ''
-      userScore.textContent = ''
-      computerScore.textContent = ''
-      parentOfButtons.removeChild(winner)
-      buttons.style.display = 'block'
-
-    }
-    restartBtn.addEventListener('click', restartGame)
+    showResult(humanScore, machineScore)
   }
-
 }
 
+function showResult(score1, score2) {
+  const buttons = document.getElementById('buttons')
+  const parentOfButtons = buttons.parentNode
+  const winner = document.createElement('div')
+  winner.classList.add('winner')
+  const userCongratulation = document.createElement('span')
+  if (score1 == 5) {
+    userCongratulation.classList.add('blue')
+    userCongratulation.textContent = 'You are winner!'
+  } else if (score2 == 5) {
+    userCongratulation.classList.add('red')
+    userCongratulation.textContent = 'You failed'
+  }
 
+  winner.appendChild(userCongratulation)
+  const breaking = document.createElement('br')
+  winner.appendChild(breaking)
+  const restartBtn = document.createElement('button')
+  restartBtn.classList.add('restart')
+  restartBtn.textContent = 'Restart?'
+  winner.appendChild(restartBtn)
+  parentOfButtons.insertBefore(winner, buttons)
+  buttons.style.display = 'none'
+
+  function restartGame() {
+    humanScore = 0
+    machineScore = 0
+    userChoice.textContent = ''
+    computerChoice.textContent = ''
+    userScore.textContent = ''
+    computerScore.textContent = ''
+    parentOfButtons.removeChild(winner)
+    buttons.style.display = 'block'
+  }
+  restartBtn.addEventListener('click', restartGame)
+}
